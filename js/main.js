@@ -19,7 +19,7 @@ function searchIt() {
 
 function getFromAPI(text2Search) {
 
-  fetch('http://api.tvmaze.com/search/shows?q=' + text2Search)
+  fetch('https://api.tvmaze.com/search/shows?q=' + text2Search)
 
     .then(function(result) {
 
