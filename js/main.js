@@ -6,7 +6,7 @@ var inputSearch = document.querySelector('.main__input--search');
 var buttonSubmit = document.querySelector('.main__button--submit');
 
 var listResults = document.querySelector('.main__results--list');
-
+var littleStar;
 
 buttonSubmit.addEventListener('click', searchIt);
 
@@ -33,8 +33,13 @@ function getFromAPI(text2Search) {
 
         var searchResultLI = document.createElement('li');
         searchResultLI.classList.add('serie-LI');
+
         var searchResultDIV = document.createElement('div');
         searchResultDIV.classList.add('serie-DIV');
+
+        littleStar = document.createElement('i');
+        littleStar.classList.add('fas', 'fa-star', 'starStyle');
+
         var searchResultH2 = document.createElement('h2');
         searchResultH2.classList.add('serie-H2');
 
@@ -48,6 +53,7 @@ function getFromAPI(text2Search) {
           searchResultImg.src = resultJSON[i].show.image.medium;
         }
 
+        searchResultDIV.appendChild(littleStar);
         searchResultDIV.appendChild(searchResultImg);
         searchResultH2.appendChild(searchResultText);
         searchResultDIV.appendChild(searchResultH2);
@@ -69,6 +75,7 @@ function favorites() {
 
 function add2Favorites(event) {
   event.currentTarget.classList.toggle('favorite');
+  event.currentTarget.firstChild.classList.toggle('visible');
 }
 
 function clearResults() {

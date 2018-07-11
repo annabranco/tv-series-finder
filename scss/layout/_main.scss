@@ -73,6 +73,7 @@ $main__search--results-width: calc(100vw - 80px);
 }
 
 .serie-DIV {
+  position  : relative;
   min-height: 360px;
   width     : 270px;
   background: #FDA7DF;
@@ -89,41 +90,17 @@ $main__search--results-width: calc(100vw - 80px);
   text-align : center;
 }
 
-.source {
-  position: absolute;
-  bottom  : 30px;
-  right   : 5%;
+.starStyle {
+  z-index    : 2;
+  position   : absolute;
+  top        : 5px;
+  right      : 12px;
+  color      : #b89812;
+  font-size  : 2rem;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  display    : none;
 
-  @media all and (min-width: 1000px) {
-    position: absolute;
-    top     : 30px;
-    right   : 100px;
-  }
-
-}
-
-.source__txt {
-  display   : inline;
-  font-size : 0.7rem;
-  font-style: italic;
-}
-
-.source__img {
-  display       : inline;
-  width         : 100px;
-  vertical-align: middle;
-}
-
-.logoAnna {
-  position: absolute;
-  bottom  : 30px;
-  left    : 5%;
-  width   : 60px;
-
-  @media all and (min-width: 1000px) {
-    bottom   : 20px;
-    right    : 50%;
-    transform: translate(-50%, 0);
-
+  &.visible {
+    display: block;
   }
 }
