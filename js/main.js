@@ -11,6 +11,7 @@ var listResults = document.querySelector('.main__results--list');
 buttonSubmit.addEventListener('click', searchIt);
 
 function searchIt() {
+  clearResults();
   getFromAPI(inputSearch.value);
   console.log(inputSearch.value);
 }
@@ -58,7 +59,6 @@ function getFromAPI(text2Search) {
     });
 }
 
-
 function favorites() {
   var allSeries = document.querySelectorAll('.serie-DIV');
 
@@ -67,36 +67,14 @@ function favorites() {
   }
 }
 
-
 function add2Favorites(event) {
   event.currentTarget.classList.toggle('favorite');
 }
 
-
-// -------------------- TEST AREA
-
-
-var tryIt = document.querySelector('.try');
-
-tryIt.addEventListener('click', tryResult);
-
-
-function tryResult() {
-
-  var testeLS = localStorage.getItem('TVMaze-search');
-  testeLS = JSON.parse(testeLS);
-
-  for (var i = 0; i < testeLS.length; i++) {
-
-    var searchResultDIV = document.createElement('div');
-    var searchResultText = document.createTextNode(testeLS[i].show.name);
-
-    searchResultDIV.appendChild(searchResultText);
-
-
-    fieldResults.append(searchResultDIV);
-
+function clearResults() {
+  var allResults = document.querySelectorAll('.serie-LI');
+  console.log(allResults);
+  for (var i = 0; i < allResults.length; i++) {
+    allResults[i].remove();
   }
-
-
 }
