@@ -9,18 +9,27 @@
 
 		<link rel="stylesheet" href="css/main.css">
 
-		<title>My Page</title>
+		<title>Buscador de series</title>
 	</head>
 
 	<body>
-
 		<header class="">
 		</header>
 
 		<main class="">
-			<section class="">
+			<h1 class="main__title">Buscador de series (en inglés)</h1>
+			<div class="main__search-box">
+				<input class="input--element main__input--search" type="text">
+				<input class="input--element main__button--submit" type="submit" value="Buscar">
+			</div>
+			<div class="source">
+				<p class="source__txt">Powered by </p><img class="source__img" src="http://static.tvmaze.com/images/api/tvm_api.png" alt="Logotipo de TVMaze API"></div>
 
+			<section class="main__search--results">
+				<ul class="main__results--list"></ul>
 			</section>
+
+			<button class="try">TEST IT</button>
 		</main>
 
 		<footer class="">
