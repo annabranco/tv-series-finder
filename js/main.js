@@ -19,7 +19,7 @@ function searchIt() {
 
 function getFromAPI(text2Search) {
 
-  fetch('http://api.tvmaze.com/search/shows?q=' + text2Search)
+  fetch('https://api.tvmaze.com/search/shows?q=' + text2Search)
 
     .then(function(result) {
 
@@ -37,8 +37,61 @@ function getFromAPI(text2Search) {
         var searchResultDIV = document.createElement('div');
         searchResultDIV.classList.add('serie-DIV');
 
-        littleStar = document.createElement('i');
-        littleStar.classList.add('fas', 'fa-star', 'starStyle');
+
+        var detailsContainer = document.createElement('div');
+        detailsContainer.classList.add('details__container');
+
+        var detailsContainerOptions = document.createElement('div');
+        detailsContainerOptions.classList.add('details__container--options');
+
+        var detailsOptions = document.createElement('div');
+        detailsOptions.classList.add('details--options');
+
+        var detailsFavoritesBox = document.createElement('div');
+        detailsFavoritesBox.classList.add('details__favorites--box');
+
+        var iconFavorites = document.createElement('i');
+        iconFavorites.classList.add('far', 'fa-star', 'details--icon');
+
+        var detailsLegendFav = document.createElement('span');
+        detailsLegendFav.classList.add('details--legend');
+        var detailsLegendFavTXT = document.createTextNode('Añadir a favoritos');
+        detailsLegendFav.appendChild(detailsLegendFavTXT);
+
+        var detailsSummaryBox = document.createElement('div');
+        detailsSummaryBox.classList.add('details__summary--box');
+
+        var iconSummary = document.createElement('i');
+        iconSummary.classList.add('fas', 'fa-info', 'details--icon');
+
+        var detailsLegendSum = document.createElement('span');
+        detailsLegendSum.classList.add('details--legend');
+        var detailsLegendSumTXT = document.createTextNode('Sinopsis (inglés)');
+        detailsLegendSum.appendChild(detailsLegendSumTXT);
+
+        var detailsRatingBox = document.createElement('div');
+        detailsRatingBox.classList.add('details__rating--box');
+
+        var iconRating = document.createElement('i');
+        iconRating.classList.add('fas', 'fa-smile', 'details--icon', 'details--icon-rating');
+
+        var detailsLegendRat = document.createElement('span');
+        detailsLegendRat.classList.add('details--legend');
+        var detailsLegendRatTXT = document.createTextNode('Valoración TVMaze');
+        detailsLegendRat.appendChild(detailsLegendRatTXT);
+
+        var detailsRate = document.createElement('p');
+        detailsRate.classList.add('details__rating--rate');
+
+        var detailsLegendRatTXT = document.createTextNode('5.0');
+
+        detailsRate.appendChild(detailsLegendRatTXT);
+
+        detailsOptions.appendChild(detailsFavoritesBox);
+        detailsOptions.appendChild(detailsSummaryBox);
+        detailsOptions.appendChild(detailsRatingBox);
+        detailsContainerOptions.appendChild(detailsOptions);
+
 
         var searchResultH2 = document.createElement('h2');
         searchResultH2.classList.add('serie-H2');
@@ -53,8 +106,31 @@ function getFromAPI(text2Search) {
           searchResultImg.src = resultJSON[i].show.image.medium;
         }
 
-        searchResultDIV.appendChild(littleStar);
+
+
         searchResultDIV.appendChild(searchResultImg);
+        searchResultDIV.appendChild(detailsContainer);
+        searchResultDIV.appendChild(detailsContainerOptions);
+        detailsFavoritesBox.appendChild(iconFavorites);
+
+        detailsFavoritesBox.appendChild(detailsLegendFav);
+
+        detailsOptions.appendChild(detailsFavoritesBox);
+
+        detailsSummaryBox.appendChild(iconSummary);
+        detailsSummaryBox.appendChild(detailsLegendSum);
+
+        detailsOptions.appendChild(detailsSummaryBox);
+
+        detailsRatingBox.appendChild(iconRating);
+        detailsRatingBox.appendChild(detailsLegendRat);
+        detailsRatingBox.appendChild(detailsRate);
+
+        detailsOptions.appendChild(detailsRatingBox);
+
+        detailsContainerOptions.appendChild(detailsOptions);
+
+
         searchResultH2.appendChild(searchResultText);
         searchResultDIV.appendChild(searchResultH2);
         searchResultLI.appendChild(searchResultDIV);

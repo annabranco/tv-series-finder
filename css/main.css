@@ -71,6 +71,7 @@ table {
   flex-direction: column;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  height: 100%;
 }
 
 .details--icon {
@@ -86,6 +87,10 @@ table {
 
 .details__favorites--box,.details__rating--box,.details__summary--box {
   position: relative;
+}
+
+.details__rating--box {
+  margin-bottom: -20px;
 }
 
 .details__favorites--box:hover .details--legend,.details__rating--box:hover .details--legend,.details__summary--box:hover .details--legend {

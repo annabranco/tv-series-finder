@@ -25,6 +25,7 @@
   justify-content: center;
   flex-direction : column;
   flex-wrap      : wrap;
+  height         : 100%;
 }
 
 .details--icon {
@@ -42,6 +43,10 @@
 .details__rating--box,
 .details__summary--box {
   position: relative;
+}
+
+.details__rating--box {
+  margin-bottom: -20px;
 }
 
 .details__favorites--box:hover,
