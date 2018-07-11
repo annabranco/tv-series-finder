@@ -40,7 +40,8 @@ table {
 
 .main__title {
   margin: 20px 0;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
+  line-height: 1rem;
   font-weight: bold;
   text-align: center;
 }
@@ -57,7 +58,7 @@ table {
   justify-content: center;
   margin: 30px auto 50px;
   height: 30px;
-  width: 100%;
+  width: 80%;
 }
 
 .main__input--search {
@@ -100,7 +101,7 @@ table {
 
 .main__search--results {
   height: auto;
-  min-height: 600px;
+  min-height: 570px;
   width: calc(100vw - 80px);
   margin: 0 auto;
 }
@@ -121,15 +122,15 @@ table {
 }
 
 .serie-H2 {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: bold;
   text-align: center;
 }
 
 .source {
   position: absolute;
-  top: 30px;
-  right: 50px;
+  bottom: 30px;
+  right: 5%;
 }
 
 .source__txt {
@@ -144,11 +145,43 @@ table {
   vertical-align: middle;
 }
 
+.logoAnna {
+  position: absolute;
+  bottom: 30px;
+  left: 5%;
+  width: 60px;
+}
+
 .favorite {
   background: #d9e04c;
   border: 3px solid #c9bd16;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+@media all and (min-width: 380px) {
+  .main__title {
+    font-size: 1.4rem;
+  }
+
+  .main__search-box {
+    width: 100%;
+  }
+}
+
+@media all and (min-width: 1000px) {
+  .source {
+    position: absolute;
+    top: 30px;
+    right: 100px;
+  }
+
+  .logoAnna {
+    bottom: 20px;
+    right: 50%;
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
