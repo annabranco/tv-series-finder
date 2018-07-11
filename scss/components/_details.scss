@@ -4,63 +4,72 @@
   width   : 210px;
 }
 
-.options {
+.details__container--options {
   z-index   : 3;
   position  : absolute;
   top       : 0;
   right     : 0;
   height    : 295px;
   width     : 75px;
-  background: rgba(37, 45, 44, 0.7);
+  background: rgba(37, 45, 44, 0.8);
   opacity   : 0;
 }
 
-.options:hover {
+.details__container--options:hover {
   opacity: 1;
 }
 
-.details {
+.details--options {
   display        : flex;
   align-items    : center;
   justify-content: center;
   flex-direction : column;
   flex-wrap      : wrap;
-
 }
 
 .details--icon {
   font-size: 3rem;
-  margin   : 10px;
+  margin   : 15px;
   color    : #ffffff;
   cursor   : pointer;
 }
 
-.details__favorites--box {
-  position: relative;
+.details--icon-rating {
+  color: #64d265;
 }
 
+.details__favorites--box,
+.details__rating--box,
 .details__summary--box {
   position: relative;
 }
 
-.details__favorites--box:hover {
-  & .favorites--legend {
-    visibility: visible;
-  }
-}
-
+.details__favorites--box:hover,
+.details__rating--box:hover,
 .details__summary--box:hover {
-  & .summary--legend {
+  & .details--legend {
     visibility: visible;
   }
 }
 
-.summary__container {
+// .details__summary--box:hover {
+//   & .details--legend {
+//     visibility: visible;
+//   }
+// }
+//
+// .details__rating--box:hover {
+//   & .details--legend {
+//     visibility: visible;
+//   }
+// }
+
+.details__container {
   position  : absolute;
   top       : 0;
   height    : 295px;
   width     : 210px;
-  background: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.9);
   text-align: justify;
   padding   : 10px;
   box-sizing: border-box;
@@ -72,23 +81,20 @@
   display: block;
 }
 
-.summary--legend {
+.details--legend {
   position  : absolute;
   top       : 25px;
   left      : 80px;
-
   width     : 100px;
   font-size : 0.8rem;
   visibility: hidden;
   color     : rgb(21, 57, 147);
 }
 
-.favorites--legend {
-  position  : absolute;
-  top       : 25px;
-  left      : 80px;
-  width     : 100px;
-  font-size : 0.8rem;
-  visibility: hidden;
-  color     : rgb(21, 57, 147);
+.details__rating--rate {
+  margin-top : -5px;
+  font-size  : 1.3rem;
+  font-weight: bold;
+  color      : #0eb50f;
+  text-align : center;
 }
