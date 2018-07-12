@@ -89,18 +89,3 @@ $main__search--results-width: calc(100vw - 80px);
   font-weight: bold;
   text-align : center;
 }
-
-.starStyle {
-  z-index    : 2;
-  position   : absolute;
-  top        : 5px;
-  right      : 12px;
-  color      : #b89812;
-  font-size  : 2rem;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-  display    : none;
-
-  &.visible {
-    display: block;
-  }
-}
