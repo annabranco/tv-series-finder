@@ -7,7 +7,9 @@ var buttonSubmit = document.querySelector('.main__button--submit');
 
 var listResults = document.querySelector('.main__results--list');
 var seriesData;
-
+var favoriteTVShow;
+var selectedTVshow;
+var tvMazeFavorites;
 
 buttonSubmit.addEventListener('click', searchIt);
 
@@ -52,6 +54,20 @@ function getFromAPI(text2Search) {
         searchResultDIV.setAttribute('data-rating', resultJSON[i].show.rating.average);
         searchResultDIV.setAttribute('data-summary', resultJSON[i].show.summary);
 
+        if ((localStorage.getItem('TVMaze-favorites')) === null || (localStorage.getItem('TVMaze-favorites') === '[]')) {
+
+        } else {
+          tvMazeFavorites = localStorage.getItem('TVMaze-favorites');
+          tvMazeFavorites = JSON.parse(tvMazeFavorites);
+          console.log(tvMazeFavorites.length);
+
+          for (var j = 0; j < tvMazeFavorites.length; j++) {
+            if (tvMazeFavorites[j].id === searchResultDIV.getAttribute('data-id')) {
+              searchResultDIV.classList.add('favorite');
+            }
+          }
+        }
+
 
         var searchResultH2 = document.createElement('h2');
         searchResultH2.classList.add('serie-H2');
@@ -85,8 +101,7 @@ function favorites() {
   }
 }
 
-var favoriteTVShow;
-var selectedTVshow;
+
 
 function add2Favorites(event) {
   event.currentTarget.classList.toggle('favorite');
@@ -102,12 +117,14 @@ function add2Favorites(event) {
     };
 
     if (localStorage.getItem('TVMaze-favorites') === null) {
+
       tvMazeFavorites = [];
+
     } else {
-      var tvMazeFavorites =
-        localStorage.getItem('TVMaze-favorites');
+      tvMazeFavorites = localStorage.getItem('TVMaze-favorites');
       tvMazeFavorites = JSON.parse(tvMazeFavorites);
     }
+
     tvMazeFavorites.push(favoriteTVShow);
     console.log(tvMazeFavorites);
 
@@ -116,30 +133,27 @@ function add2Favorites(event) {
 
     localStorage.setItem('TVMaze-favorites', tvMazeFavorites);
   } else {
+
     checkFavorites();
+
   }
 }
 
 function checkFavorites() {
   var selectedID = selectedTVshow.getAttribute('data-id');
-  alert(selectedID);
 
-  var tvMazeFavorites =
-    localStorage.getItem('TVMaze-favorites');
+  tvMazeFavorites = localStorage.getItem('TVMaze-favorites');
   tvMazeFavorites = JSON.parse(tvMazeFavorites);
 
   for (var i = 0; i < tvMazeFavorites.length; i++) {
     if (selectedID === tvMazeFavorites[i].id) {
+      console.log(tvMazeFavorites[i]);
       tvMazeFavorites.splice(i, 1);
       console.log(tvMazeFavorites);
-
     }
-    // tvMazeFavorites = JSON.stringify(tvMazeFavorites);
-    //
-    // localStorage.setItem("TVMaze-favorites", tvMazeFavorites);
+
+    localStorage.setItem('TVMaze-favorites', JSON.stringify(tvMazeFavorites));
   }
-
-
 
 }
 
