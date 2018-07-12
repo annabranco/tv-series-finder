@@ -4,6 +4,16 @@ var noImage = 'https://via.placeholder.com/210x295/cccccc/666666/?text=TV';
 
 var noSummary = '<p>This Tv show has no summary</p>';
 
+var body = document.querySelector('body');
+
+body.addEventListener('keydown', enterKey);
+
+function enterKey(event) {
+  if (event.keyCode === 13) {
+    buttonSubmit.click();
+  }
+}
+
 var inputSearch = document.querySelector('.main__input--search');
 var buttonSubmit = document.querySelector('.main__button--submit');
 
