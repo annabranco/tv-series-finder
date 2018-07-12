@@ -11,6 +11,7 @@ var favoriteTVShow;
 var selectedTVshow;
 var tvMazeFavorites;
 <<<<<<< HEAD
+<<<<<<< HEAD
 var body;
 <<<<<<< HEAD
 =======
@@ -20,6 +21,8 @@ var searchResultH2;
 var searchResultText;
 var searchResultImg;
 >>>>>>> parent of fa0a7ce... Fix: show only favorites
+=======
+>>>>>>> parent of e49c518... Enhanc: cleaning the code
 =======
 >>>>>>> parent of e49c518... Enhanc: cleaning the code
 
@@ -74,13 +77,16 @@ function getFromAPI(text2Search) {
     })
 
     .then(function(resultJSON) {
+<<<<<<< HEAD
 
       for (var i = 0; i < resultJSON.length; i++) {
 
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of e49c518... Enhanc: cleaning the code
 
-      for (i = 0; i < resultJSON.length; i++) {
+      for (var i = 0; i < resultJSON.length; i++) {
 
 >>>>>>> parent of fa0a7ce... Fix: show only favorites
 
