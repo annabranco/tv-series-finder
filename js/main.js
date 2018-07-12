@@ -2,11 +2,12 @@
 
 var noImage = 'https://via.placeholder.com/210x295/cccccc/666666/?text=TV';
 
+var noSummary = '<p>This Tv show has no summary</p>';
+
 var inputSearch = document.querySelector('.main__input--search');
 var buttonSubmit = document.querySelector('.main__button--submit');
 
 var listResults = document.querySelector('.main__results--list');
-var littleStar;
 
 buttonSubmit.addEventListener('click', searchIt);
 
@@ -41,6 +42,15 @@ function getFromAPI(text2Search) {
         var detailsContainer = document.createElement('div');
         detailsContainer.classList.add('details__container');
 
+        var detailsContainerSummary;
+        if (resultJSON[i].show.summary === null) {
+          detailsContainerSummary = noSummary;
+        } else {
+          detailsContainerSummary = resultJSON[i].show.summary;
+        }
+        detailsContainerSummary = document.createTextNode(detailsContainerSummary);
+        detailsContainer.appendChild(detailsContainerSummary);
+
         var detailsContainerOptions = document.createElement('div');
         detailsContainerOptions.classList.add('details__container--options');
 
@@ -72,8 +82,41 @@ function getFromAPI(text2Search) {
         var detailsRatingBox = document.createElement('div');
         detailsRatingBox.classList.add('details__rating--box');
 
+        var seriesRating = resultJSON[i].show.rating.average;
+        var seriesRatingIcon;
+        var seriesRatingIconColor;
+
+        if (seriesRating === null) {
+          seriesRatingIcon = 'fa-meh-blank';
+          seriesRatingIconColor = 'notrated-show';
+
+        } else if (seriesRating < 4) {
+          seriesRatingIcon = 'fa-angry';
+          seriesRatingIconColor = 'bad-show';
+        } else if (seriesRating >= 4 && seriesRating < 6) {
+          seriesRatingIcon = 'fa-frown';
+          seriesRatingIconColor = 'bad-show';
+
+        } else if (seriesRating >= 6 && seriesRating < 7) {
+          seriesRatingIcon = 'fa-meh-rolling-eyes';
+          seriesRatingIconColor = 'notbad-show';
+
+        } else if (seriesRating >= 7 && seriesRating < 8) {
+          seriesRatingIcon = 'fa-smile';
+          seriesRatingIconColor = 'good-show';
+
+        } else if (seriesRating >= 8 && seriesRating < 9) {
+          seriesRatingIcon = 'fa-laugh-beam';
+          seriesRatingIconColor = 'good-show';
+
+        } else if (seriesRating >= 9 && seriesRating <= 10) {
+          seriesRatingIcon = 'fa-grin-hearts';
+          seriesRatingIconColor = 'amazing-show';
+
+        }
+
         var iconRating = document.createElement('i');
-        iconRating.classList.add('fas', 'fa-smile', 'details--icon', 'details--icon-rating');
+        iconRating.classList.add('fas', seriesRatingIcon, 'details--icon', 'details--icon-rating', seriesRatingIconColor);
 
         var detailsLegendRat = document.createElement('span');
         detailsLegendRat.classList.add('details--legend');
@@ -81,9 +124,17 @@ function getFromAPI(text2Search) {
         detailsLegendRat.appendChild(detailsLegendRatTXT);
 
         var detailsRate = document.createElement('p');
-        detailsRate.classList.add('details__rating--rate');
+        detailsRate.classList.add('details__rating--rate', seriesRatingIconColor);
 
-        var detailsLegendRatTXT = document.createTextNode('5.0');
+        var detailsLegendRatTXT;
+        if (seriesRating === null) {
+          detailsLegendRatTXT = 'N/A';
+        } else {
+          detailsLegendRatTXT = resultJSON[i].show.rating.average;
+        }
+
+        detailsLegendRatTXT = document.createTextNode(detailsLegendRatTXT);
+
 
         detailsRate.appendChild(detailsLegendRatTXT);
 

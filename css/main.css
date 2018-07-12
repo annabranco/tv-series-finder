@@ -34,19 +34,13 @@ table {
   border-spacing: 0;
 }
 
-.cont {
-  position: relative;
-  height: 295px;
-  width: 210px;
-}
-
 .details__container--options {
   z-index: 3;
   position: absolute;
   top: 0;
   right: 0;
-  height: 295px;
-  width: 75px;
+  height: 100%;
+  width: 100px;
   background: rgba(37, 45, 44, 0.8);
   opacity: 0;
 }
@@ -82,7 +76,8 @@ table {
 }
 
 .details--icon-rating {
-  color: #64d265;
+  font-size: 2rem;
+  color: white;
 }
 
 .details__favorites--box,.details__rating--box,.details__summary--box {
@@ -126,13 +121,13 @@ table {
 
 .details__rating--rate {
   margin-top: -5px;
-  font-size: 1.3rem;
-  font-weight: bold;
+  font-size: 1rem;
   color: #0eb50f;
   text-align: center;
 }
 
 .footer {
+  z-index: 3;
   position: fixed;
   bottom: 0;
   background-color: rgba(255, 255, 255, 0.8);
@@ -245,18 +240,19 @@ table {
   position: relative;
   min-height: 360px;
   width: 270px;
-  background: #FDA7DF;
+  background: #f0bbdd;
   padding: 10px;
   text-align: center;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  cursor: pointer;
 }
 
 .serie-H2 {
+  margin-top: 10px;
   font-size: 1rem;
   font-weight: bold;
   text-align: center;
+  color: #b92f2f;
 }
 
 .starStyle {
@@ -279,6 +275,26 @@ table {
   border: 3px solid #c9bd16;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+.amazing-show {
+  color: #64d265;
+}
+
+.good-show {
+  color: #64d265;
+}
+
+.notbad-show {
+  color: #c6c6c6;
+}
+
+.notrated-show {
+  color: white;
+}
+
+.bad-show {
+  color: #bd5454;
 }
 
 @media all and (min-width: 380px) {

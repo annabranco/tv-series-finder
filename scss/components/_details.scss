@@ -1,16 +1,10 @@
-.cont {
-  position: relative;
-  height  : 295px;
-  width   : 210px;
-}
-
 .details__container--options {
   z-index   : 3;
   position  : absolute;
   top       : 0;
   right     : 0;
-  height    : 295px;
-  width     : 75px;
+  height    : 100%;
+  width     : 100px;
   background: rgba(37, 45, 44, 0.8);
   opacity   : 0;
 }
@@ -36,7 +30,9 @@
 }
 
 .details--icon-rating {
-  color: #64d265;
+  font-size: 2rem;
+  color    : white;
+
 }
 
 .details__favorites--box,
@@ -56,18 +52,6 @@
     visibility: visible;
   }
 }
-
-// .details__summary--box:hover {
-//   & .details--legend {
-//     visibility: visible;
-//   }
-// }
-//
-// .details__rating--box:hover {
-//   & .details--legend {
-//     visibility: visible;
-//   }
-// }
 
 .details__container {
   position  : absolute;
@@ -97,9 +81,8 @@
 }
 
 .details__rating--rate {
-  margin-top : -5px;
-  font-size  : 1.3rem;
-  font-weight: bold;
-  color      : #0eb50f;
-  text-align : center;
+  margin-top: -5px;
+  font-size : 1rem;
+  color     : #0eb50f;
+  text-align: center;
 }

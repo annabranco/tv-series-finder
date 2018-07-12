@@ -76,18 +76,18 @@ $main__search--results-width: calc(100vw - 80px);
   position  : relative;
   min-height: 360px;
   width     : 270px;
-  background: #FDA7DF;
+  background: #f0bbdd;
   padding   : 10px;
   text-align: center;
   box-sizing: border-box;
-  cursor    : pointer;
-
 }
 
 .serie-H2 {
+  margin-top : 10px;
   font-size  : 1rem;
   font-weight: bold;
   text-align : center;
+  color      : #b92f2f;
 }
 
 .starStyle {
