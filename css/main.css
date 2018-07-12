@@ -70,7 +70,7 @@ table {
 
 .details--icon {
   font-size: 3rem;
-  margin: 15px;
+  margin: 20px 15px;
   color: #ffffff;
   cursor: pointer;
 }
@@ -78,6 +78,7 @@ table {
 .details--icon-rating {
   font-size: 2rem;
   color: white;
+  cursor: auto;
 }
 
 .details__favorites--box,.details__rating--box,.details__summary--box {
@@ -94,14 +95,16 @@ table {
 
 .details__container {
   position: absolute;
-  top: 0;
-  height: 295px;
-  width: 210px;
+  top: 1px;
+  left: 1px;
+  height: 304px;
+  width: calc(100% - 2px);
   background: rgba(255, 255, 255, 0.9);
   text-align: justify;
-  padding: 10px;
+  padding: 15px;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  overflow: scroll;
   display: none;
 }
 
@@ -111,12 +114,16 @@ table {
 
 .details--legend {
   position: absolute;
-  top: 25px;
-  left: 80px;
-  width: 100px;
-  font-size: 0.8rem;
+  top: -2px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  width: 50px;
+  font-size: 0.65rem;
   visibility: hidden;
-  color: #153993;
+  color: #9dd1fb;
+  line-height: 1;
+  text-align: center;
 }
 
 .details__rating--rate {

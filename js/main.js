@@ -47,9 +47,10 @@ function getFromAPI(text2Search) {
           detailsContainerSummary = noSummary;
         } else {
           detailsContainerSummary = resultJSON[i].show.summary;
+          console.log(detailsContainerSummary);
         }
-        detailsContainerSummary = document.createTextNode(detailsContainerSummary);
-        detailsContainer.appendChild(detailsContainerSummary);
+
+        detailsContainer.innerHTML = detailsContainerSummary;
 
         var detailsContainerOptions = document.createElement('div');
         detailsContainerOptions.classList.add('details__container--options');
@@ -186,28 +187,15 @@ function getFromAPI(text2Search) {
         searchResultDIV.appendChild(searchResultH2);
         searchResultLI.appendChild(searchResultDIV);
         listResults.append(searchResultLI);
+
       }
-      favorites();
+      addTriggers()
 
     });
 }
 
-function favorites() {
-  var allSeries = document.querySelectorAll('.serie-DIV');
-
-  for (var i = 0; i < allSeries.length; i++) {
-    allSeries[i].addEventListener('click', add2Favorites);
-  }
-}
-
-function add2Favorites(event) {
-  event.currentTarget.classList.toggle('favorite');
-  event.currentTarget.firstChild.classList.toggle('visible');
-}
-
 function clearResults() {
   var allResults = document.querySelectorAll('.serie-LI');
-  console.log(allResults);
   for (var i = 0; i < allResults.length; i++) {
     allResults[i].remove();
   }
