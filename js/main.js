@@ -10,6 +10,14 @@ var favoriteTVShow;
 var selectedTVshow;
 var tvMazeFavorites;
 var body;
+<<<<<<< HEAD
+=======
+var searchResultLI;
+var searchResultDIV;
+var searchResultH2;
+var searchResultText;
+var searchResultImg;
+>>>>>>> parent of fa0a7ce... Fix: show only favorites
 
 buttonSubmit.addEventListener('click', searchIt);
 
@@ -26,9 +34,30 @@ function enterKey(event) {
 
 function searchIt() {
   clearResults();
+<<<<<<< HEAD
   getFromAPI(inputSearch.value);
 }
 
+=======
+
+  if (inputSearch.value === ':fav') {
+
+    if ((localStorage.getItem('TVMaze-favorites')) === null || (localStorage.getItem('TVMaze-favorites') === '[]')) {
+      var noFavorites = document.createTextNode('No tienes guardado ningún favorito.');
+      listResults.appendChild(noFavorites);
+
+    } else {
+      seeFavoritesOnly();
+    }
+
+  } else {
+
+    getFromAPI(inputSearch.value);
+  }
+}
+
+function getFromAPI(text2Search) {
+>>>>>>> parent of fa0a7ce... Fix: show only favorites
 
 function getFromAPI(text2Search) {
 
@@ -50,6 +79,12 @@ function getFromAPI(text2Search) {
 
       for (i = 0; i < resultJSON.length; i++) {
 
+<<<<<<< HEAD
+=======
+
+      for (i = 0; i < resultJSON.length; i++) {
+
+>>>>>>> parent of fa0a7ce... Fix: show only favorites
 
         searchResultLI = document.createElement('li');
         searchResultLI.classList.add('serie-LI');
@@ -96,6 +131,10 @@ function getFromAPI(text2Search) {
     });
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of fa0a7ce... Fix: show only favorites
 function favorites() {
   var i;
   var allSeries = document.querySelectorAll('.serie-DIV');
@@ -163,5 +202,49 @@ function clearResults() {
   var allResults = document.querySelectorAll('.serie-LI');
   for (i = 0; i < allResults.length; i++) {
     allResults[i].remove();
+<<<<<<< HEAD
+=======
+  }
+}
+
+function seeFavoritesOnly() {
+  var z;
+
+  tvMazeFavorites = localStorage.getItem('TVMaze-favorites');
+  tvMazeFavorites = JSON.parse(tvMazeFavorites);
+
+  for (z = 0; z < tvMazeFavorites.length; z++) {
+
+
+    searchResultLI = document.createElement('li');
+    searchResultLI.classList.add('serie-LI');
+
+    searchResultDIV = document.createElement('div');
+    searchResultDIV.classList.add('serie-DIV');
+    searchResultDIV.setAttribute('data-id', tvMazeFavorites[z].id);
+    searchResultDIV.setAttribute('data-rating', tvMazeFavorites[z].rating);
+    searchResultDIV.setAttribute('data-summary', tvMazeFavorites[z].summary);
+    searchResultDIV.classList.add('favorite');
+
+
+    searchResultH2 = document.createElement('h2');
+    searchResultH2.classList.add('serie-H2');
+
+    searchResultText = document.createTextNode(tvMazeFavorites[z].name);
+    searchResultImg = document.createElement('img');
+    searchResultImg.classList.add('serie-IMG');
+
+    if (tvMazeFavorites[z].image === null) {
+      searchResultImg.src = noImage;
+    } else {
+      searchResultImg.src = tvMazeFavorites[z].image;
+    }
+
+    searchResultDIV.appendChild(searchResultImg);
+    searchResultH2.appendChild(searchResultText);
+    searchResultDIV.appendChild(searchResultH2);
+    searchResultLI.appendChild(searchResultDIV);
+    listResults.append(searchResultLI);
+>>>>>>> parent of fa0a7ce... Fix: show only favorites
   }
 }
