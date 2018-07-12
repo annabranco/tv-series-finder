@@ -161,6 +161,21 @@ table {
   text-align: center;
 }
 
+.starStyle {
+  z-index: 2;
+  position: absolute;
+  top: 5px;
+  right: 12px;
+  color: #b89812;
+  font-size: 2rem;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  display: none;
+}
+
+.starStyle.visible {
+  display: block;
+}
+
 .favorite {
   background: #d9e04c;
   border: 3px solid #c9bd16;

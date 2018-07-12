@@ -6,6 +6,7 @@ var inputSearch = document.querySelector('.main__input--search');
 var buttonSubmit = document.querySelector('.main__button--submit');
 
 var listResults = document.querySelector('.main__results--list');
+<<<<<<< HEAD
 var seriesData;
 <<<<<<< HEAD
 var favoriteTVShow;
@@ -29,19 +30,11 @@ var searchResultImg;
 =======
 
 >>>>>>> parent of 4963c9c... v1.3: favorites saved on localStorage
+=======
+var littleStar;
+>>>>>>> parent of b71f231... Try: localStorage
 
 buttonSubmit.addEventListener('click', searchIt);
-
-
-var body = document.querySelector('body');
-
-body.addEventListener('keydown', enterKey);
-
-function enterKey(event) {
-  if (event.keyCode === 13) {
-    buttonSubmit.click();
-  }
-}
 
 function searchIt() {
   clearResults();
@@ -99,10 +92,9 @@ function getFromAPI(text2Search) {
 
         var searchResultDIV = document.createElement('div');
         searchResultDIV.classList.add('serie-DIV');
-        searchResultDIV.setAttribute('data-id', resultJSON[i].show.id);
-        searchResultDIV.setAttribute('data-rating', resultJSON[i].show.rating.average);
-        searchResultDIV.setAttribute('data-summary', resultJSON[i].show.summary);
 
+        littleStar = document.createElement('i');
+        littleStar.classList.add('fas', 'fa-star', 'starStyle');
 
         var searchResultH2 = document.createElement('h2');
         searchResultH2.classList.add('serie-H2');
@@ -117,6 +109,7 @@ function getFromAPI(text2Search) {
           searchResultImg.src = resultJSON[i].show.image.medium;
         }
 
+        searchResultDIV.appendChild(littleStar);
         searchResultDIV.appendChild(searchResultImg);
         searchResultH2.appendChild(searchResultText);
         searchResultDIV.appendChild(searchResultH2);
@@ -140,62 +133,9 @@ function favorites() {
   }
 }
 
-var favoriteTVShow;
-var selectedTVshow;
-
 function add2Favorites(event) {
   event.currentTarget.classList.toggle('favorite');
-
-  selectedTVshow = event.currentTarget;
-
-  if (event.currentTarget.classList.contains('favorite')) {
-    favoriteTVShow = {
-      'id': event.currentTarget.getAttribute('data-id'),
-      'name': event.currentTarget.children[1].innerHTML,
-      'rating': event.currentTarget.getAttribute('data-rating'),
-      'summary': event.currentTarget.getAttribute('data-summary')
-    };
-
-    if (localStorage.getItem('TVMaze-favorites') === null) {
-      tvMazeFavorites = [];
-    } else {
-      var tvMazeFavorites =
-        localStorage.getItem('TVMaze-favorites');
-      tvMazeFavorites = JSON.parse(tvMazeFavorites);
-    }
-    tvMazeFavorites.push(favoriteTVShow);
-    console.log(tvMazeFavorites);
-
-    tvMazeFavorites = JSON.stringify(tvMazeFavorites);
-    console.log(tvMazeFavorites);
-
-    localStorage.setItem('TVMaze-favorites', tvMazeFavorites);
-  } else {
-    checkFavorites();
-  }
-}
-
-function checkFavorites() {
-  var selectedID = selectedTVshow.getAttribute('data-id');
-  alert(selectedID);
-
-  var tvMazeFavorites =
-    localStorage.getItem('TVMaze-favorites');
-  tvMazeFavorites = JSON.parse(tvMazeFavorites);
-
-  for (var i = 0; i < tvMazeFavorites.length; i++) {
-    if (selectedID === tvMazeFavorites[i].id) {
-      tvMazeFavorites.splice(i, 1);
-      console.log(tvMazeFavorites);
-
-    }
-    // tvMazeFavorites = JSON.stringify(tvMazeFavorites);
-    //
-    // localStorage.setItem("TVMaze-favorites", tvMazeFavorites);
-  }
-
-
-
+  event.currentTarget.firstChild.classList.toggle('visible');
 }
 
 function clearResults() {

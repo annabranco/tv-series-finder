@@ -5,8 +5,7 @@
 	},
 	"js": {
 		"src": [
-			"js/main.js",
-			"js/localStorage.js"
+			"js/main.js"
 		],
 		"dest": "js/"
 	},
