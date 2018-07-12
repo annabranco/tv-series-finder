@@ -6,15 +6,15 @@ var inputSearch = document.querySelector('.main__input--search');
 var buttonSubmit = document.querySelector('.main__button--submit');
 
 var listResults = document.querySelector('.main__results--list');
-var seriesData;
 var favoriteTVShow;
 var selectedTVshow;
 var tvMazeFavorites;
+var body;
 
 buttonSubmit.addEventListener('click', searchIt);
 
 
-var body = document.querySelector('body');
+body = document.querySelector('body');
 
 body.addEventListener('keydown', enterKey);
 
@@ -27,7 +27,6 @@ function enterKey(event) {
 function searchIt() {
   clearResults();
   getFromAPI(inputSearch.value);
-  console.log(inputSearch.value);
 }
 
 
@@ -41,27 +40,31 @@ function getFromAPI(text2Search) {
     })
 
     .then(function(resultJSON) {
+      var i;
+      var j;
+      var searchResultLI;
+      var searchResultDIV;
+      var searchResultH2;
+      var searchResultText;
+      var searchResultImg;
 
-      for (var i = 0; i < resultJSON.length; i++) {
+      for (i = 0; i < resultJSON.length; i++) {
 
 
-        var searchResultLI = document.createElement('li');
+        searchResultLI = document.createElement('li');
         searchResultLI.classList.add('serie-LI');
 
-        var searchResultDIV = document.createElement('div');
+        searchResultDIV = document.createElement('div');
         searchResultDIV.classList.add('serie-DIV');
         searchResultDIV.setAttribute('data-id', resultJSON[i].show.id);
         searchResultDIV.setAttribute('data-rating', resultJSON[i].show.rating.average);
         searchResultDIV.setAttribute('data-summary', resultJSON[i].show.summary);
 
-        if ((localStorage.getItem('TVMaze-favorites')) === null || (localStorage.getItem('TVMaze-favorites') === '[]')) {
-
-        } else {
+        if ((localStorage.getItem('TVMaze-favorites')) === null || (localStorage.getItem('TVMaze-favorites') === '[]')) {} else {
           tvMazeFavorites = localStorage.getItem('TVMaze-favorites');
           tvMazeFavorites = JSON.parse(tvMazeFavorites);
-          console.log(tvMazeFavorites.length);
 
-          for (var j = 0; j < tvMazeFavorites.length; j++) {
+          for (j = 0; j < tvMazeFavorites.length; j++) {
             if (tvMazeFavorites[j].id === searchResultDIV.getAttribute('data-id')) {
               searchResultDIV.classList.add('favorite');
             }
@@ -69,11 +72,11 @@ function getFromAPI(text2Search) {
         }
 
 
-        var searchResultH2 = document.createElement('h2');
+        searchResultH2 = document.createElement('h2');
         searchResultH2.classList.add('serie-H2');
 
-        var searchResultText = document.createTextNode(resultJSON[i].show.name);
-        var searchResultImg = document.createElement('img');
+        searchResultText = document.createTextNode(resultJSON[i].show.name);
+        searchResultImg = document.createElement('img');
         searchResultImg.classList.add('serie-IMG');
 
         if (resultJSON[i].show.image === null) {
@@ -94,9 +97,10 @@ function getFromAPI(text2Search) {
 }
 
 function favorites() {
+  var i;
   var allSeries = document.querySelectorAll('.serie-DIV');
 
-  for (var i = 0; i < allSeries.length; i++) {
+  for (i = 0; i < allSeries.length; i++) {
     allSeries[i].addEventListener('click', add2Favorites);
   }
 }
@@ -126,10 +130,8 @@ function add2Favorites(event) {
     }
 
     tvMazeFavorites.push(favoriteTVShow);
-    console.log(tvMazeFavorites);
 
     tvMazeFavorites = JSON.stringify(tvMazeFavorites);
-    console.log(tvMazeFavorites);
 
     localStorage.setItem('TVMaze-favorites', tvMazeFavorites);
   } else {
@@ -140,16 +142,15 @@ function add2Favorites(event) {
 }
 
 function checkFavorites() {
+  var i;
   var selectedID = selectedTVshow.getAttribute('data-id');
 
   tvMazeFavorites = localStorage.getItem('TVMaze-favorites');
   tvMazeFavorites = JSON.parse(tvMazeFavorites);
 
-  for (var i = 0; i < tvMazeFavorites.length; i++) {
+  for (i = 0; i < tvMazeFavorites.length; i++) {
     if (selectedID === tvMazeFavorites[i].id) {
-      console.log(tvMazeFavorites[i]);
       tvMazeFavorites.splice(i, 1);
-      console.log(tvMazeFavorites);
     }
 
     localStorage.setItem('TVMaze-favorites', JSON.stringify(tvMazeFavorites));
@@ -158,9 +159,9 @@ function checkFavorites() {
 }
 
 function clearResults() {
+  var i;
   var allResults = document.querySelectorAll('.serie-LI');
-  console.log(allResults);
-  for (var i = 0; i < allResults.length; i++) {
+  for (i = 0; i < allResults.length; i++) {
     allResults[i].remove();
   }
 }
