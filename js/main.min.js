@@ -21,6 +21,7 @@ var searchResultDIV;
 var searchResultH2;
 var searchResultText;
 var searchResultImg;
+var episodies;
 
 buttonSubmit.addEventListener('click', searchIt);
 
@@ -28,7 +29,6 @@ function searchIt() {
   clearResults();
 
   getFromAPI(inputSearch.value);
-  console.log(inputSearch.value);
 
   if (inputSearch.value === ':fav') {
 
@@ -59,6 +59,10 @@ function getFromAPI(text2Search) {
 
       for (var i = 0; i < resultJSON.length; i++) {
 
+
+        episodies = resultJSON[i].show.id;
+        var nameSeries = resultJSON[i].show.name;
+
         var searchResultLI = document.createElement('li');
         searchResultLI.classList.add('serie-LI');
 
@@ -78,9 +82,12 @@ function getFromAPI(text2Search) {
           searchResultImg.src = resultJSON[i].show.image.medium;
         }
 
+        getNumberEpisodies(nameSeries);
+
         searchResultDIV.appendChild(searchResultImg);
         searchResultH2.appendChild(searchResultText);
         searchResultDIV.appendChild(searchResultH2);
+        // llamar función favorites() aquí y pasar el DIV como argumento
         searchResultLI.appendChild(searchResultDIV);
         listResults.append(searchResultLI);
       }
@@ -88,6 +95,26 @@ function getFromAPI(text2Search) {
 
     });
 }
+
+
+function getNumberEpisodies(nameSeries) {
+
+  fetch('https://api.tvmaze.com/shows/' + episodies + '/episodes')
+
+    .then(function(result) {
+
+      return result.json();
+    })
+    .then(function(episodiosJSON) {
+
+      var numberEpisodies = episodiosJSON.length;
+      console.log(nameSeries + ': ' + numberEpisodies);
+
+    });
+
+
+}
+
 
 function favorites() {
   var allSeries = document.querySelectorAll('.serie-DIV');
