@@ -3,19 +3,6 @@
 /* global  tvMazeFavorites:true  selectedTVshow:true noImage:true seeFavoritesOnly listResults:true  */
 
 
-// ============================ GESTIÓN DE LOS FAVORITOS
-
-// ------------ Función que añade Event Listeners a todos los DIVs ya creados
-// function favorites() {
-//   var i;
-//   var allSeries = document.querySelectorAll('.serie-DIV');
-//
-//   for (i = 0; i < allSeries.length; i++) {
-//     allSeries[i].addEventListener('click', add2Favorites);
-//   }
-// }
-
-
 // ------------ Función que gestiona los favoritos (guarda y recoge sus datos en localStorage)
 function add2Favorites(event) {
   var favoriteTVShow;
