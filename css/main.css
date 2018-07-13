@@ -167,7 +167,7 @@ table {
   width: 60px;
 }
 
-* {
+body {
   font-family: sans-serif;
 }
 
@@ -199,10 +199,22 @@ table {
   width: 250px;
   border: 0;
   border-bottom: 1px solid black;
-  padding: 0;
+  padding: 5px;
   font-size: 1rem;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+::-webkit-input-placeholder {
+  font-size: 0.7rem;
+}
+
+::-moz-placeholder {
+  font-size: 0.7rem;
+}/* firefox 19+ */:-ms-input-placeholder {
+  font-size: 0.7rem;
+}/* ie */input:-moz-placeholder {
+  font-size: 0.7rem;
 }
 
 .main__button--submit {
@@ -245,13 +257,15 @@ table {
 
 .serie-DIV {
   position: relative;
+  border: 3px solid #FDA7DF;
   min-height: 360px;
   width: 270px;
-  background: #f0bbdd;
+  background: #FDA7DF;
   padding: 10px;
   text-align: center;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 .serie-H2 {
@@ -260,21 +274,6 @@ table {
   font-weight: bold;
   text-align: center;
   color: #b92f2f;
-}
-
-.starStyle {
-  z-index: 2;
-  position: absolute;
-  top: 5px;
-  right: 12px;
-  color: #b89812;
-  font-size: 2rem;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-  display: none;
-}
-
-.starStyle.visible {
-  display: block;
 }
 
 .favorite {

@@ -6,7 +6,9 @@
 	"js": {
 		"src": [
 			"js/main.js",
-			"js/details.js"
+			"js/details.js",
+			"js/favorites.js"
+
 		],
 		"dest": "js/"
 	},
