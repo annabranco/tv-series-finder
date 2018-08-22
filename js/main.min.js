@@ -50,7 +50,7 @@ function changeWallpaper() {
 	const mainBackground = document.querySelector('.main__inner');
 	const wallpaperNumber = Math.floor(Math.random() * 10);
 
-	mainBackground.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.7),rgb(0, 0, 0)), url('../images/wallpapers/${wallpaperNumber}.jpg')`;
+	mainBackground.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.7),rgb(0, 0, 0)), url('images/wallpapers/${wallpaperNumber}.jpg')`;
 }
 
 changeWallpaper();
