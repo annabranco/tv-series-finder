@@ -37,7 +37,7 @@ function enterKey(event) {
 
 function changePlaceholder(event) {
 	if ( event.currentTarget.placeholder === '' ) {
-		event.currentTarget.placeholder = 'Tip: type :fav to see your favorites only';
+		event.currentTarget.placeholder = ':fav for favorites only';
 	} else {
 		event.currentTarget.placeholder = '';
 	}
@@ -334,6 +334,7 @@ function clearResults() {
 function showCredits() {
 	toggleCredits();
 	creditsBox.addEventListener('mouseleave',hideCreditsBox );
+	setTimeout(hideCreditsBox,4000);
 }
 
 function toggleCredits() {

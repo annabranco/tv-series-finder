@@ -216,7 +216,7 @@ table {
   align-items: center;
   -ms-flex-pack: distribute;
   justify-content: space-around;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.9);
   height: auto;
   width: 100vw;
   padding: 5px;
@@ -262,7 +262,7 @@ table {
 }
 
 .footer__inner:last-of-type {
-  grid-column: span 1;
+  grid-column: span 2;
 }
 
 .footer__text {
@@ -277,7 +277,7 @@ table {
 }
 
 .footer__adalab__img {
-  margin-top: 15px;
+  margin-top: 0;
   width: 100px;
 }
 
@@ -448,6 +448,14 @@ body {
   .footer__inner {
     margin-bottom: 0;
     width: 33vw;
+  }
+
+  .footer__inner:last-of-type {
+    grid-column: span 1;
+  }
+
+  .footer__adalab__img {
+    margin-top: 15px;
   }
 }
 

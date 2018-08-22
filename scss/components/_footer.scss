@@ -5,7 +5,7 @@
 	display         : flex;
 	align-items     : center;
 	justify-content : space-around;
-	background-color: rgba(0, 0, 0, 0.7);
+	background-color: rgba(0, 0, 0, 0.9);
 	height          : auto;
 	width           : 100vw;
 	padding         : 5px;
@@ -48,12 +48,17 @@
 	width          : 100%;
 
 	&:last-of-type {
-		grid-column: span 1;
+		grid-column: span 2;
 	}
 
 	@media all and (min-width: 500px) {
 		margin-bottom: 0;
 		width        : 33vw;
+
+		&:last-of-type {
+			grid-column: span 1;
+		}
+
 	}
 }
 
@@ -70,8 +75,12 @@
 }
 
 .footer__adalab__img {
-	margin-top: 15px;
+	margin-top: 0;
 	width     : 100px;
+
+	@media all and (min-width: 500px) {
+		margin-top: 15px;
+	}
 }
 
 .footer__powered--img {
