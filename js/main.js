@@ -4,7 +4,6 @@
 
 // ============================ DECLARACIONES GLOBALES
 
-
 // ------------ Query Selectors
 const inputSearch = document.querySelector('.header__input--search');
 const buttonSubmit = document.querySelector('.header__button--submit');
