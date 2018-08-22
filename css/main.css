@@ -40,6 +40,7 @@ table {
   background-position: center;
   background-size: cover;
   padding: 10px;
+
 }
 
 .header__title {
@@ -355,6 +356,7 @@ body {
   min-height: 360px;
   width: 250px;
   background: rgba(201, 201, 201, 0.1);
+
   padding: 10px;
   text-align: center;
   -webkit-box-sizing: border-box;
@@ -364,6 +366,7 @@ body {
 
 .serie-H2 {
   margin-top: 10px;
+
   letter-spacing: 1px;
   font-size: 1rem;
   font-weight: bold;
