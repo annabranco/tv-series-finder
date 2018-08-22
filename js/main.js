@@ -14,12 +14,15 @@ const body = document.querySelector('body');
 // ------------ Variables globales
 let favoriteSeries;
 // ------------ Imagen de exhibición cuando la serie descargada no la tiene
-const noImage = 'https://via.placeholder.com/210x295/cccccc/666666/?text=TV';
+const noImage = 'https://via.placeholder.com/210x295/584f66/ffffff/?text=no%20image';
 const noSummary = '<p>This Tv show has no summary</p>';
 
 
 // ------------ Global event listeners
 buttonSubmit.addEventListener('click', searchIt); // EL#1
+inputSearch.addEventListener('mouseover', changePlaceholder);
+inputSearch.addEventListener('mouseout', changePlaceholder);
+
 body.addEventListener('keydown', enterKey);
 
 
@@ -30,6 +33,13 @@ function enterKey(event) {
 	}
 }
 
+function changePlaceholder(event) {
+	if ( event.currentTarget.placeholder === '' ) {
+		event.currentTarget.placeholder = 'Tip: type :fav to see your favorites only';
+	} else {
+		event.currentTarget.placeholder = '';
+	}
+}
 
 // ============================ WALLPAPERS aleatorios
 
@@ -271,6 +281,8 @@ function createResults(allReturnedSeries) {
 
 		if (serie.show.image === null) {
 			searchResultImg.src = noImage;
+			searchResultImg.classList.add('serie-IMG-no');
+
 		} else {
 			searchResultImg.src = serie.show.image.medium;
 			searchResultDIV.setAttribute('data-image', searchResultImg.src);

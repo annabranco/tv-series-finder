@@ -320,6 +320,10 @@ body {
   color: #e3accf;
 }
 
+.serie-IMG-no {
+  opacity: 0.5;
+}
+
 .no-favorites {
   margin-top: 60px;
   font-family: "Advent Pro", sans-serif;
@@ -329,10 +333,23 @@ body {
 }
 
 .favorite {
-  background: #d9e04c;
-  border: 3px solid #c9bd16;
+  -webkit-box-shadow: inset 0 0 30px 5px rgba(217, 224, 76, 0.4);
+  box-shadow: inset 0 0 30px 5px rgba(217, 224, 76, 0.4);
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+.favorite .serie-IMG {
+  -webkit-box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.1);
+}
+
+.favorite .serie-H2 {
+  color: #d9e04c;
+}
+
+.serie-IMG {
+  border-radius: 10px;
 }
 
 .amazing-show {

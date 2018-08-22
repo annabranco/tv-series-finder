@@ -1,7 +1,21 @@
 .favorite {
-	background: #d9e04c;
-	border    : 3px solid #c9bd16;
+	//background: rgba(217, 224, 76, 0.1);
+	box-shadow: inset 0 0 30px 5px rgba(217, 224, 76, 0.4);
+
 	box-sizing: border-box;
+
+	& .serie-IMG {
+		//border: 1px solid rgba(217, 224, 76, 0.4);
+		box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.1);
+	}
+
+	& .serie-H2 {
+		color: rgba(217, 224, 76, 1);
+	}
+}
+
+.serie-IMG {
+	border-radius: 10px;
 }
 
 .amazing-show {
