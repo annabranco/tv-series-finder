@@ -8,26 +8,66 @@
 
 		<link rel="stylesheet" href="css/main.css">
 
-		<title>Buscador de series</title>
+		<title>TV Series Finder</title>
 	</head>
 
 	<body>
-		<header class="">
+		<header class="header__outer">
+
+			<h1 class="header__title">TV Series finder</h1>
+			<div class="header__search-box">
+				<input class="input--element header__input--search" type="text" placeholder="">
+				<input class="input--element header__button--submit" type="submit" value="Search it!">
+			</div>
+
 		</header>
 
-		<main class="">
-			<h1 class="main__title">Buscador de series (en inglés)</h1>
-			<div class="main__search-box">
-				<input class="input--element main__input--search" type="text">
-				<input class="input--element main__button--submit" type="submit" value="Buscar">
+		<main class="main__outer">
+
+			<div class="main__inner">
+
 			</div>
 
 			<section class="main__search--results">
 				<ul class="main__results--list"></ul>
 			</section>
+
 		</main>
 
 		<footer class="footer">
+
+			<div class="footer__outer footer__credits--details hidden">
+				<div class="footer__inner">
+					<p class="footer__text">Powered by</p>
+					<a href="https://www.tvmaze.com/" target="_Blank">
+						<img src="http://static.tvmaze.com/images/api/tvm_api.png" alt="Logotipo de TVMaze API" class="footer__powered--img"/>
+				</a>
+
+				</div>
+
+				<div class="footer__inner">
+					<p class="footer__text">Developer</p>
+					<a href="https://twitter.com/AnyaBranco" target="_Blank">
+	                <img src="images/logo-anna-rabbit.gif" alt="Anna Branco" class="footer__anna--img"/>
+	            </a>
+				</div>
+
+				<div class="footer__inner">
+					<p class="footer__text">Creating digital diversity</p>
+					<a href="https://www.adalab.es" target="_Blank">
+	                <img src="images/logo-adalab.png" alt="Adalab" class="footer__adalab__img"/>
+	            </a>
+				</div>
+
+				<p class="footer__version" id="credits">v1.0</p>
+
+			</div>
+
+
+			<div class="footer__credits--text-box">
+				<p class="footer__credits--text">See credits</p>
+			</div>
+
 		</footer>
 
 		<script type="text/javascript" src="js/main.min.js"></script>

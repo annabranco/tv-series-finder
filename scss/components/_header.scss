@@ -1,1 +1,71 @@
-$colorBlue: red;
+.header__outer {
+	background-image   : linear-gradient(to top, rgba(142, 35, 35, 0.6), rgba(62, 8, 8, 0.7)), url('../images/wp-water.gif');
+	background-position: center;
+	background-size    : cover;
+	padding            : 10px;
+}
+
+.header__title {
+	margin     : 10px 0 25px;
+	font-size  : 1.2rem;
+	line-height: 1rem;
+
+	font-family: $font__title;
+	font-weight: bold;
+	text-align : center;
+	color      : white;
+
+	@media all and (min-width: 380px) {
+		font-size: 2.2rem;
+	}
+}
+
+.header__search-box {
+	display        : flex;
+	align-items    : center;
+	justify-content: center;
+	margin         : 30px auto 10px;
+	height         : 30px;
+	width          : 80%;
+
+	@media all and (min-width: 380px) {
+		width: 100%;
+	}
+}
+
+.header__input--search {
+	height       : 30px;
+	width        : 250px;
+	border       : 0;
+	border-bottom: 1px solid black;
+	padding      : 5px;
+	font-size    : 1rem;
+	box-sizing   : border-box;
+}
+
+::-webkit-input-placeholder {
+	font-size: 0.7rem;
+}
+
+::-moz-placeholder {
+	font-size: 0.7rem;
+}
+/* firefox 19+ */
+:-ms-input-placeholder {
+	font-size: 0.7rem;
+}
+/* ie */
+input:-moz-placeholder {
+	font-size: 0.7rem;
+}
+
+.header__button--submit {
+	margin-left     : 20px;
+	background-image: linear-gradient(to bottom, #8e2323, #490811);
+	border          : 0 none;
+	height          : 30px;
+	width           : 80px;
+	cursor          : pointer;
+	color           : white;
+	font-size       : 0.8rem;
+}

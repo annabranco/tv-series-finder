@@ -1,32 +1,98 @@
 .footer {
-  position        : fixed;
-  bottom          : 0;
-  background-color: rgba(255, 255, 255, 0.8);
-  height          : 45px;
-  width           : 100vw;
+	z-index         : 3;
+	position        : fixed;
+	bottom          : 0;
+	display         : flex;
+	align-items     : center;
+	justify-content : space-around;
+	background-color: rgba(0, 0, 0, 0.9);
+	height          : auto;
+	width           : 100vw;
+	padding         : 5px;
 }
 
-.source {
-  position: absolute;
-  bottom  : 15px;
-  right   : 5%;
+.footer__credits--text-box {
+	margin: 0;
+	width : 100vw;
 }
 
-.source__txt {
-  display   : inline;
-  font-size : 0.7rem;
-  font-style: italic;
+.footer__credits--text {
+	margin        : 0;
+	text-align    : center;
+	font-family   : $font__title;
+	font-weight   : bold;
+	letter-spacing: 3px;
+	color         : rgba(215, 196, 17, 0.7);
+	cursor        : pointer;
 }
 
-.source__img {
-  display       : inline;
-  width         : 100px;
-  vertical-align: middle;
+.footer__outer {
+	display              : grid;
+	grid-template-columns: 1fr 1fr;
+	margin               : 0;
+	width                : 100vw;
+
+	@media all and (min-width: 500px) {
+		grid-template-columns: 1fr 1fr 1fr;
+		margin               : 0;
+		width                : 100vw;
+		min-width            : 500px;
+	}
 }
 
-.logoAnna {
-  position: absolute;
-  bottom  : 5px;
-  left    : 5%;
-  width   : 60px;
+.footer__inner {
+	display        : flex;
+	flex-direction : column;
+	align-items    : center;
+	justify-content: flex-start;
+	width          : 100%;
+
+	&:last-of-type {
+		grid-column: span 2;
+	}
+
+	@media all and (min-width: 500px) {
+		margin-bottom: 0;
+		width        : 33vw;
+
+		&:last-of-type {
+			grid-column: span 1;
+		}
+
+	}
+}
+
+.footer__text {
+	margin     : 4px 0;
+	font-family: 'Eagle Lake', cursive;
+	font-size  : 0.7rem;
+	color      : rgba(255, 255, 255, 0.5);
+}
+
+.footer__anna--img {
+	width: 120px;
+
+}
+
+.footer__adalab__img {
+	margin-top: 0;
+	width     : 100px;
+
+	@media all and (min-width: 500px) {
+		margin-top: 15px;
+	}
+}
+
+.footer__powered--img {
+	margin-top: 20px;
+	width     : 120px;
+}
+
+.footer__version {
+	display    : block;
+	margin-top : 10px;
+	text-align : center;
+	color      : rgba(255, 255, 255, 0.6);
+	font-size  : 0.8rem;
+	grid-column: span 3;
 }
