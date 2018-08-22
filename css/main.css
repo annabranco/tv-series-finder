@@ -40,7 +40,6 @@ table {
   background-position: center;
   background-size: cover;
   padding: 10px;
-
 }
 
 .header__title {
@@ -356,7 +355,6 @@ body {
   min-height: 360px;
   width: 250px;
   background: rgba(201, 201, 201, 0.1);
-
   padding: 10px;
   text-align: center;
   -webkit-box-sizing: border-box;
@@ -366,7 +364,6 @@ body {
 
 .serie-H2 {
   margin-top: 10px;
-
   letter-spacing: 1px;
   font-size: 1rem;
   font-weight: bold;
@@ -428,6 +425,26 @@ body {
 
 .hidden {
   display: none !important;
+}
+
+.amazing-show {
+  color: #64d265;
+}
+
+.good-show {
+  color: #64d265;
+}
+
+.notbad-show {
+  color: #c6c6c6;
+}
+
+.notrated-show {
+  color: white;
+}
+
+.bad-show {
+  color: #bd5454;
 }
 
 @media all and (min-width: 380px) {
