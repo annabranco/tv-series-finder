@@ -53,7 +53,7 @@ function searchIt() {
 
 	clearResults(); // Limpia los resultados anteriores. Función definida abajo.
 
-	if (inputSearch.value === ':fav') { // Posibilita el usuario usar la string :fav para ver los favoritos
+	if (inputSearch.value.toLowerCase() === ':fav') { // Posibilita el usuario usar la string :fav para ver los favoritos
 
 		if ((localStorage.getItem('AB TV Series finder favorites')) === null || (localStorage.getItem('AB TV Series finder favorites') === '[]')) {
 			inputSearch.value = '';
