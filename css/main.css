@@ -1,4 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/
+@import url("https://fonts.googleapis.com/css?family=Advent+Pro:400,700");/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video {
@@ -34,14 +34,81 @@ table {
   border-spacing: 0;
 }
 
+.header__outer {
+  background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(142, 35, 35, 0.6)), to(rgba(62, 8, 8, 0.7))), url("../images/wp-water.gif");
+  background-image: linear-gradient(to top, rgba(142, 35, 35, 0.6), rgba(62, 8, 8, 0.7)), url("../images/wp-water.gif");
+  background-position: center;
+  background-size: cover;
+  padding: 10px;
+}
+
+.header__title {
+  margin: 10px 0 25px;
+  font-size: 1.2rem;
+  line-height: 1rem;
+  font-family: "Advent Pro", sans-serif;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+}
+
+.header__search-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 30px auto 10px;
+  height: 30px;
+  width: 80%;
+}
+
+.header__input--search {
+  height: 30px;
+  width: 250px;
+  border: 0;
+  border-bottom: 1px solid black;
+  padding: 5px;
+  font-size: 1rem;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+::-webkit-input-placeholder {
+  font-size: 0.7rem;
+}
+
+::-moz-placeholder {
+  font-size: 0.7rem;
+}/* firefox 19+ */:-ms-input-placeholder {
+  font-size: 0.7rem;
+}/* ie */input:-moz-placeholder {
+  font-size: 0.7rem;
+}
+
+.header__button--submit {
+  margin-left: 20px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#8e2323), to(#490811));
+  background-image: linear-gradient(to bottom, #8e2323, #490811);
+  border: 0 none;
+  height: 30px;
+  width: 80px;
+  cursor: pointer;
+  color: white;
+  font-size: 0.8rem;
+}
+
 .details__container--options {
   z-index: 3;
   position: absolute;
   top: 0;
   right: 0;
-  height: 100%;
-  width: 100px;
-  background: rgba(37, 45, 44, 0.8);
+  width: 60px;
+  background: rgba(0, 0, 0, 0.8);
   opacity: 0;
 }
 
@@ -56,29 +123,38 @@ table {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  height: 100%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  min-height: 363px;
+  padding: 50px 0;
 }
 
-.details--icon {
-  font-size: 3rem;
-  margin: 20px 15px;
-  color: #ffffff;
+.icon--favorite,.icon--rating,.icon--summary {
+  font-size: 1.4rem;
+  margin: 14px;
   cursor: pointer;
+  text-shadow: 0 0 5px black;
 }
 
-.details--icon-rating {
+.icon--rating {
   font-size: 2rem;
-  color: white;
   cursor: auto;
+}
+
+.icon--favorite {
+  color: #bdb60f;
+}
+
+.icon--summary {
+  color: #99cbe3;
 }
 
 .details__favorites--box,.details__rating--box,.details__summary--box {
@@ -87,10 +163,6 @@ table {
 
 .details__rating--box {
   margin-bottom: -20px;
-}
-
-.details__favorites--box:hover .details--legend,.details__rating--box:hover .details--legend,.details__summary--box:hover .details--legend {
-  visibility: visible;
 }
 
 .details__container {
@@ -120,8 +192,7 @@ table {
   transform: translate(-50%, 0);
   width: 50px;
   font-size: 0.65rem;
-  visibility: hidden;
-  color: #9dd1fb;
+  color: rgba(235, 235, 235, 0.7);
   line-height: 1;
   text-align: center;
 }
@@ -137,95 +208,63 @@ table {
   z-index: 3;
   position: fixed;
   bottom: 0;
-  background-color: rgba(255, 255, 255, 0.8);
-  height: 45px;
-  width: 100vw;
-}
-
-.source {
-  position: absolute;
-  bottom: 15px;
-  right: 5%;
-}
-
-.source__txt {
-  display: inline;
-  font-size: 0.7rem;
-  font-style: italic;
-}
-
-.source__img {
-  display: inline;
-  width: 100px;
-  vertical-align: middle;
-}
-
-.logoAnna {
-  position: absolute;
-  bottom: 5px;
-  left: 5%;
-  width: 60px;
-}
-
-body {
-  font-family: sans-serif;
-}
-
-.main__title {
-  margin: 20px 0;
-  font-size: 1.2rem;
-  line-height: 1rem;
-  font-weight: bold;
-  text-align: center;
-}
-
-.main__search-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  margin: 30px auto 50px;
-  height: 30px;
-  width: 80%;
-}
-
-.main__input--search {
-  height: 30px;
-  width: 250px;
-  border: 0;
-  border-bottom: 1px solid black;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  background-color: rgba(0, 0, 0, 0.3);
+  height: auto;
+  width: 100vw;
   padding: 5px;
-  font-size: 1rem;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
 }
 
-::-webkit-input-placeholder {
-  font-size: 0.7rem;
+.footer__credits--text {
+  font-family: "Advent Pro", sans-serif;
+  font-weight: bold;
+  letter-spacing: 3px;
+  color: rgba(215, 196, 17, 0.7);
 }
 
-::-moz-placeholder {
+.source__txt {
   font-size: 0.7rem;
-}/* firefox 19+ */:-ms-input-placeholder {
-  font-size: 0.7rem;
-}/* ie */input:-moz-placeholder {
-  font-size: 0.7rem;
+  font-style: italic;
+  text-align: center;
 }
 
-.main__button--submit {
-  margin: 0 7px;
-  background: #8e2323;
-  border: 0 none;
-  height: 30px;
-  width: 80px;
-  cursor: pointer;
-  color: white;
-  font-size: 0.8rem;
+.source__img {
+  width: 100px;
+  vertical-align: middle;
+}
+
+.logoAnna {
+  width: 60px;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: black;
+}
+
+.main__outer {
+  position: relative;
+  height: calc(100vh - 156px);
+  width: 100vw;
+  overflow: hidden;
+}
+
+.main__inner {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(black));
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), black);
+  background-size: cover;
+  background-position: center;
+  -webkit-filter: blur(3px) grayscale(70%);
+  filter: blur(3px) grayscale(70%);
+  height: 100vh;
 }
 
 .main__results--list {
@@ -242,13 +281,16 @@ body {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+  margin-bottom: 200px;
 }
 
 .main__search--results {
-  height: auto;
+  position: absolute;
+  top: 5px;
+  height: 100vh;
+  width: 100vw;
   min-height: 570px;
-  width: calc(100vw - 80px);
-  margin: 0 auto;
+  overflow: scroll;
 }
 
 .serie-LI {
@@ -257,23 +299,33 @@ body {
 
 .serie-DIV {
   position: relative;
-  border: 3px solid #FDA7DF;
+  border: 3px solid rgba(201, 201, 201, 0.1);
+  border-radius: 20px;
   min-height: 360px;
-  width: 270px;
-  background: #FDA7DF;
+  width: 250px;
+  background: rgba(201, 201, 201, 0.1);
   padding: 10px;
   text-align: center;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  cursor: pointer;
+  overflow: hidden;
 }
 
 .serie-H2 {
   margin-top: 10px;
+  letter-spacing: 1px;
   font-size: 1rem;
   font-weight: bold;
   text-align: center;
-  color: #b92f2f;
+  color: #e3accf;
+}
+
+.no-favorites {
+  margin-top: 60px;
+  font-family: "Advent Pro", sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+  color: #c3c698;
 }
 
 .favorite {
@@ -296,19 +348,23 @@ body {
 }
 
 .notrated-show {
-  color: white;
+  color: rgba(150, 150, 150, 0.39);
 }
 
 .bad-show {
   color: #bd5454;
 }
 
+.hidden {
+  display: none;
+}
+
 @media all and (min-width: 380px) {
-  .main__title {
-    font-size: 1.4rem;
+  .header__title {
+    font-size: 2.2rem;
   }
 
-  .main__search-box {
+  .header__search-box {
     width: 100%;
   }
 }

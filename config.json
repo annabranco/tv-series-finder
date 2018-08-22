@@ -8,7 +8,6 @@
 			"js/main.js",
 			"js/details.js",
 			"js/favorites.js"
-
 		],
 		"dest": "js/"
 	},
