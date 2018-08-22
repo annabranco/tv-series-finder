@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Advent+Pro:400,700");/* http://meyerweb.com/eric/tools/css/reset/
+@import url("https://fonts.googleapis.com/css?family=Advent+Pro:400,700|Eagle+Lake");/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video {
@@ -222,26 +222,77 @@ table {
   padding: 5px;
 }
 
+.footer__credits--text-box {
+  margin: 0;
+  width: 100vw;
+}
+
 .footer__credits--text {
+  margin: 0;
+  text-align: center;
   font-family: "Advent Pro", sans-serif;
   font-weight: bold;
   letter-spacing: 3px;
   color: rgba(215, 196, 17, 0.7);
+  cursor: pointer;
 }
 
-.source__txt {
+.footer__outer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0;
+  width: 100vw;
+}
+
+.footer__inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.footer__inner:last-of-type {
+  grid-column: span 1;
+}
+
+.footer__text {
+  margin: 4px 0;
+  font-family: 'Eagle Lake', cursive;
   font-size: 0.7rem;
-  font-style: italic;
-  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
 }
 
-.source__img {
+.footer__anna--img {
+  width: 120px;
+}
+
+.footer__adalab__img {
+  margin-top: 15px;
   width: 100px;
-  vertical-align: middle;
 }
 
-.logoAnna {
-  width: 60px;
+.footer__powered--img {
+  margin-top: 20px;
+  width: 120px;
+}
+
+.footer__version {
+  display: block;
+  margin-top: 10px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.8rem;
+  grid-column: span 3;
 }
 
 body {
@@ -373,7 +424,7 @@ body {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 @media all and (min-width: 380px) {
@@ -383,6 +434,20 @@ body {
 
   .header__search-box {
     width: 100%;
+  }
+}
+
+@media all and (min-width: 500px) {
+  .footer__outer {
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 0;
+    width: 100vw;
+    min-width: 500px;
+  }
+
+  .footer__inner {
+    margin-bottom: 0;
+    width: 33vw;
   }
 }
 

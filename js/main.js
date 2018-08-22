@@ -9,6 +9,8 @@
 const inputSearch = document.querySelector('.header__input--search');
 const buttonSubmit = document.querySelector('.header__button--submit');
 const listResults = document.querySelector('.main__results--list');
+const seeCredits = document.querySelector('.footer__credits--text');
+const creditsBox = document.querySelector('.footer__credits--details');
 const body = document.querySelector('body');
 
 // ------------ Variables globales
@@ -22,7 +24,7 @@ const noSummary = '<p>This Tv show has no summary</p>';
 buttonSubmit.addEventListener('click', searchIt); // EL#1
 inputSearch.addEventListener('mouseover', changePlaceholder);
 inputSearch.addEventListener('mouseout', changePlaceholder);
-
+seeCredits.addEventListener('click', showCredits);
 body.addEventListener('keydown', enterKey);
 
 
@@ -321,10 +323,26 @@ function createResults(allReturnedSeries) {
 
 // ------------ Función para limpiar los resultados. Es accionada a cada nueva búsqueda.
 function clearResults() {
-	var allResults;
+	let allResults;
 
 	allResults = document.querySelectorAll('.serie-LI');
 	for (const eachResult of allResults) {
 		eachResult.remove();
 	}
+}
+
+function showCredits() {
+	toggleCredits();
+	creditsBox.addEventListener('mouseleave',hideCreditsBox );
+}
+
+function toggleCredits() {
+	const seeCreditsBox = document.querySelector('.footer__credits--text-box');
+	creditsBox.classList.toggle('hidden');
+	seeCreditsBox.classList.toggle('hidden');
+}
+
+function hideCreditsBox() {
+	toggleCredits();
+	creditsBox.removeEventListener('mouseleave',hideCreditsBox );
 }
