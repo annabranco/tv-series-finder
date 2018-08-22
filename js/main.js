@@ -11,6 +11,7 @@ const buttonSubmit = document.querySelector('.header__button--submit');
 const listResults = document.querySelector('.main__results--list');
 const seeCredits = document.querySelector('.footer__credits--text');
 const creditsBox = document.querySelector('.footer__credits--details');
+const seeCreditsBox = document.querySelector('.footer__credits--text-box');
 const body = document.querySelector('body');
 
 // ------------ Variables globales
@@ -334,11 +335,15 @@ function clearResults() {
 function showCredits() {
 	toggleCredits();
 	creditsBox.addEventListener('mouseleave',hideCreditsBox );
-	setTimeout(hideCreditsBox,4000);
+
+	setTimeout(() => {
+		creditsBox.classList.add('hidden');
+		seeCreditsBox.classList.remove('hidden');
+		creditsBox.removeEventListener('mouseleave',hideCreditsBox );
+	},4000);
 }
 
 function toggleCredits() {
-	const seeCreditsBox = document.querySelector('.footer__credits--text-box');
 	creditsBox.classList.toggle('hidden');
 	seeCreditsBox.classList.toggle('hidden');
 }
