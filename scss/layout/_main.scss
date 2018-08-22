@@ -4,7 +4,7 @@ body {
 	background : black;
 }
 
-$main__outer-height: calc(100vh - 156px);
+$main__outer-height: calc(100vh - 120px);
 
 .main__outer {
 	position: relative;
@@ -17,7 +17,6 @@ $main__outer-height: calc(100vh - 156px);
 	background-image   : linear-gradient(rgba(0, 0, 0, 0.7),rgb(0, 0, 0));
 	background-size    : cover;
 	background-position: center;
-	//	background-attachment: fixed;
 	filter: blur(3px) grayscale(70%);
 	height             : 100vh;
 }
@@ -29,7 +28,7 @@ $main__outer-height: calc(100vh - 156px);
 	flex-wrap      : wrap;
 	align-items    : center;
 	justify-content: center;
-	margin-bottom  : 200px;
+	margin-bottom  : 150px;
 }
 
 .main__search--results {

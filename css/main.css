@@ -216,7 +216,7 @@ table {
   align-items: center;
   -ms-flex-pack: distribute;
   justify-content: space-around;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.7);
   height: auto;
   width: 100vw;
   padding: 5px;
@@ -252,7 +252,7 @@ body {
 
 .main__outer {
   position: relative;
-  height: calc(100vh - 156px);
+  height: calc(100vh - 120px);
   width: 100vw;
   overflow: hidden;
 }
@@ -281,7 +281,7 @@ body {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  margin-bottom: 200px;
+  margin-bottom: 150px;
 }
 
 .main__search--results {

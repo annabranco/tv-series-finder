@@ -18,7 +18,7 @@ function add2Favorites(event) {
 	event.currentTarget.firstChild.classList.toggle('far');
 
 
-	// El IF está invertido porque añadi un toggle antes. Así que si el elemento tiene en ese momento la clase 'favorite' es porque acabó de recibirla y no está todavía guardada en el localStorage
+	// El IF está invertido porque añadi un toggle antes. Así que en el IF abajo, si el elemento tiene la clase 'favorite' es porque acabó de recibirla y no está todavía guardada en el localStorage
 	if (selectedTVshow.classList.contains('favorite')) {
 
 		event.currentTarget.children[1].innerHTML = 'Unfavorite';
@@ -68,7 +68,7 @@ function checkFavorites() {
 	favoriteSeries = JSON.parse(favoriteSeries);
 
 	for (let i = 0; i < favoriteSeries.length; i++) {
-		if (selectedID === favoriteSeries[i].id) {
+		if (selectedID === favoriteSeries[i].show.id) {
 			favoriteSeries.splice(i, 1);
 		}
 
